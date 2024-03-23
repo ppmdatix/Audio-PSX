@@ -14,18 +14,16 @@
 
 
     <audio id="myAudio">
-        <source src="{{ url_for('static', filename='audio/' + audio_file) }}" type="audio/mp3">
+        <source src="{{ url_for('static', filename='audio/las/' + audio_file) }}" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
     <button id="playPauseBtn">🎶 Jouer les la 🎶</button>
+    <button id="reload-button" class="cta" data-audio-folder="las">Nouveau la la la</button>
+    <button id="reveal-name-button" class="cta">❗Révéler❗</button>
+    
 
-    <button id="reload-button" class="cta">Nouveau la la la</button>
-    <button id="reveal-name-button" class="cta">❗Révéler le nombre de la❗</button>
 </div>
 </div>
-
-
-
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
 </html>

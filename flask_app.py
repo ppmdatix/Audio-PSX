@@ -23,24 +23,23 @@ def random_sound_player():
     return render_template('random_sound_player.html', audio_file=selected_sound)
 
 
-@app.route('/la_counter')
-def la_counter():
-    # Select a random audio file to display initially
-    selected_audio = random.choice(audio_files)
-    return render_template('la_counter.html', audio_file=selected_audio)
-
-
 @app.route('/random-sound')
 def random_sound():
     # API to get a random audio file
     selected_sound = random.choice(sound_files)
     return jsonify({'audio_file': selected_sound})
 
+@app.route('/la_counter')
+def la_counter():
+    # Select a random audio file to display initially
+    selected_audio = random.choice(la_files)
+    return render_template('la_counter.html', audio_file=selected_audio)
+
 
 @app.route('/random-la')
 def random_la():
     # API to get a random audio file
-    selected_la = random.choice(audio_files)
+    selected_la = random.choice(la_files)
     return jsonify({'audio_file': selected_la})
 
 if __name__ == '__main__':

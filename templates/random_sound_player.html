@@ -11,15 +11,12 @@
 </div>
 <div class="main-container">
 <div class="audio-player-container">
-
-
     <audio id="myAudio">
         <source src="{{ url_for('static', filename='audio/sounds/' + audio_file) }}" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
     <button id="playPauseBtn">🎶 Jouer le son 🎶</button>
-
-    <button id="reload-button" class="cta">Nouveau son</button>
+    <button id="reload-button" class="cta" data-audio-folder="sounds">Nouveau son</button>
     <button id="reveal-name-button" class="cta">❗Révéler ❗</button>
 </div>
 </div>
