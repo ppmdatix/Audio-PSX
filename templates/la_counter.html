@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Compter les las</title>
+</head>
+<body>
+<div class="logo-container">
+    <img src="{{ url_for('static', filename='images/logo-berte-audition.svg') }}" alt="Berte Audition Logo">
+</div>
+<div class="main-container">
+<div class="audio-player-container">
+
+
+    <audio id="myAudio">
+        <source src="{{ url_for('static', filename='audio/' + audio_file) }}" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="playPauseBtn">🎶 Jouer les la 🎶</button>
+
+    <button id="reload-button" class="cta">Nouveau la la la</button>
+    <button id="reveal-name-button" class="cta">❗Révéler le nombre de la❗</button>
+</div>
+</div>
+
+
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

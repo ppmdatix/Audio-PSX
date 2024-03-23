@@ -1,9 +1,9 @@
 document.getElementById('reload-button').addEventListener('click', function() {
-    fetch('/random-audio')
+    fetch('/random-sound')
         .then(response => response.json())
         .then(data => {
             const audioPlayer = document.getElementById('myAudio');
-            const newSrc = `${window.location.origin}/static/audio/${data.audio_file}`;
+            const newSrc = `${window.location.origin}/static/audio/sounds/${data.audio_file}`;
             audioPlayer.src = newSrc;
             audioPlayer.load();  // Reloads new audio
             audioPlayer.pause();  // Ensure audio is not playing
