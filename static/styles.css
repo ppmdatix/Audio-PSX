@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+
 body, html {
     height: 100%;
     margin: 0;
@@ -108,6 +112,67 @@ audio {
 #playPauseBtn:active {
     background-color: #006D5B; /* Even darker shade for click feedback */
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Slightly reduced shadow to simulate pressing */
+}
+
+
+
+
+/* Base styles */
+.game-rules-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #18fc94;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif; /* Apply Roboto font here */
+    max-width: 80vw;
+
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center; /* Center text for better mobile readability */
+}
+
+.game-rules-container h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.game-rules-container p {
+    margin: 10px 0;
+    line-height: 1.6;
+    color: #666;
+}
+
+.audio-player-container {
+    text-align: center; /* Ensures buttons and audio player center on smaller screens */
+}
+
+@media (max-width: 600px) {
+    .logo-container img {
+        max-width: 90%; /* Adjust logo size on smaller screens */
+    }
+
+    .audio-player-container, .game-rules-container {
+        width: 95%; /* Use more of the screen width */
+        padding: 10px; /* Adjust padding for smaller screens */
+
+    }
+
+    .audio-player-container, .main-container {
+        text-align: center; /* This ensures that content inside, including inline-block elements, are centered */
+    }
+
+    .audio-player-container button, .cta {
+        width: 90%; /* Change from 'auto' to a percentage to ensure it takes up majority of the screen width while centered */
+        margin: 10px auto; /* 'auto' margins on left and right can help center block elements */
+        display: block; /* Change from inline-block for full width buttons on smaller screens */
+    }
+
+    .game-rules-container h2 {
+        font-size: 1.25rem; /* Larger text for headings */
+    }
+
+    .game-rules-container p {
+        font-size: 1rem; /* Adjust paragraph font size for readability */
+    }
 }
 
 

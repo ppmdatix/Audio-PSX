@@ -10,9 +10,13 @@
     <img src="{{ url_for('static', filename='images/logo-berte-audition.svg') }}" alt="Berte Audition Logo">
 </div>
 <div class="main-container">
+        <div class="game-rules-container">
+            <h2>Game Rules</h2>
+            <p>Listen to the sound and count how many times 'La' is mentioned. Hit the 'Play' button to start and the 'Reveal' button to check your answer after your guess.</p>
+        </div>
+
+    
 <div class="audio-player-container">
-
-
     <audio id="myAudio">
         <source src="{{ url_for('static', filename='audio/las/' + audio_file) }}" type="audio/mp3">
         Your browser does not support the audio element.

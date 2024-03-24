@@ -10,6 +10,13 @@
     <img src="{{ url_for('static', filename='images/logo-berte-audition.svg') }}" alt="Berte Audition Logo">
 </div>
 <div class="main-container">
+
+        <div class="game-rules-container">
+            <h2>Règle</h2>
+            <p>Lancez le son. Dès qu'un joueur pense avoir deviné ce dont il s'agit, il énonce sa proposition. 2 joueurs ne peuvent pas faire la même proposition. Une fois que tous les joueurs ont proposé, la réponse est révélée.</p>
+        </div>
+
+
 <div class="audio-player-container">
     <audio id="myAudio">
         <source src="{{ url_for('static', filename='audio/sounds/' + audio_file) }}" type="audio/mp3">
