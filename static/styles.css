@@ -34,7 +34,7 @@ body, html {
 }
 
 .main-container {
-    flex: 1; /* Take up all available space */
+
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center vertically in the available space */
@@ -44,8 +44,8 @@ body, html {
 .audio-player-container {
     width: 80%; /* Make the container take up 80% of the viewport width */
     min-width: 300px; /* Set a minimum width to ensure usability on smaller screens */
-    margin: 20px auto; /* Center the player on the page */
-    padding: 20px; /* Add some padding around the player
+    margin: auto; /* Center the player on the page */
+    padding: 30px; /* Add some padding around the player
     padding: 20px; /* Add some padding around the player */
     background-color: #F9C0C0; /* A light background */
     border-radius: 15px; /* Rounded corners */
@@ -132,8 +132,8 @@ audio {
 
 /* Base styles */
 .game-rules-container {
-    margin-bottom: 20px;
-    padding: 15px;
+    margin-bottom: 10px;
+    padding: 5px;
     background-color: #18fc94;
     border-radius: 10px;
     font-family: 'Roboto', sans-serif; /* Apply Roboto font here */
@@ -149,7 +149,7 @@ audio {
 }
 
 .game-rules-container p {
-    margin: 10px 0;
+    margin: 5px 0;
     line-height: 1.6;
     color: #666;
 }
@@ -160,7 +160,7 @@ audio {
 
 @media (max-width: 600px) {
     .logo-container img {
-        max-width: 90%; /* Adjust logo size on smaller screens */
+        max-width: 80%; /* Adjust logo size on smaller screens */
     }
 
     .audio-player-container, .game-rules-container {
