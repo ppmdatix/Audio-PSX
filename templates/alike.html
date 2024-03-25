@@ -12,18 +12,18 @@
 <div class="main-container">
         <div class="game-rules-container">
             <h2>Règles</h2>
-            <p>Écoutez le son et comptez combien de fois la note 'La' est jouée. Appuyez sur 'Jouer' pour commencer et sur 'Révéler' pour vérifier votre réponse après votre supposition.</p>
+            <p>Écoutez les 2 notes de musique. Si vous pensez que les 2 notes sont identiques, validez avec votre pouce 👍. Sinon 👎. Appuyez sur 'Jouer' pour commencer et sur 'Révéler' pour vérifier vos réponses respectives. Une bonne réponse donne 1 point.</p>
 
         </div>
 
     
 <div class="audio-player-container">
     <audio id="myAudio">
-        <source src="{{ url_for('static', filename='audio/las/' + audio_file) }}" type="audio/mp3">
+        <source src="{{ url_for('static', filename='audio/alike/' + audio_file) }}" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    <button id="playPauseBtn">🎶 Jouer les la 🎶</button>
-    <button id="reload-button" class="cta" data-audio-folder="las">Nouveau la la la</button>
+    <button id="playPauseBtn">🎶 Jouer les notes 🎶</button>
+    <button id="reload-button" class="cta" data-audio-folder="alike">Nouveau duo de notes</button>
     <button id="reveal-name-button" class="cta">❗Révéler❗</button>
     
 

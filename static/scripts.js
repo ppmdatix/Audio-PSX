@@ -11,7 +11,7 @@ document.getElementById('reload-button').addEventListener('click', function() {
             audioPlayer.pause();
             audioPlayer.load(); // Reloads new audio
             const playPauseBtn = document.getElementById('playPauseBtn');
-            playPauseBtn.textContent = folder === 'las' ? '🎶 Jouer les la 🎶' : '🎶 Jouer le son 🎶'; // Update text based on folder
+            playPauseBtn.textContent = folder === 'las' ? '🎶 Jouer les la 🎶' : folder === 'sounds' ? '🎶 Jouer le son 🎶' : '🎶 Jouer les notes 🎶'; // Update text based on folder
             const revealButton = document.getElementById('reveal-name-button');
             revealButton.style.display = 'block'; // Show "Reveal Name" button again
             revealButton.textContent = '❗ Révéler ❗'; // Reset text for the reveal button
@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const reloadBtn = document.getElementById('reload-button');
     const revealBtn = document.getElementById('reveal-name-button');
     const folder = reloadBtn.getAttribute('data-audio-folder'); 
-    const fetched = folder === 'las' ? 'random-la' : 'random-sound'; // Update text based on folder
-    const texteAJouer = folder === 'las' ? 'la' : 'son';
+    const fetched = folder === 'las' ? 'random-la' : folder === 'sounds' ?'random-sound' : 'random-alike'; // Update text based on folder
+    const texteAJouer = folder === 'las' ? 'las' : folder === 'sounds' ?'sons': 'notes';
 
 
 
@@ -49,16 +49,16 @@ document.addEventListener('DOMContentLoaded', function() {
     playPauseBtn.addEventListener('click', function() {
         if (audioPlayer.paused) {
             audioPlayer.play();
-            this.textContent = '⏸️ Arrêter le ' + texteAJouer;
+            this.textContent = '⏸️ Arrêter les ' + texteAJouer;
         } else {
             audioPlayer.pause();
-            this.textContent = '🎶 Jouer le ' + texteAJouer + ' 🎶';
+            this.textContent = '🎶 Jouer les ' + texteAJouer + ' 🎶';
         }
     });
 
     // Change button text when audio ends
     audioPlayer.addEventListener('ended', function() {
-        playPauseBtn.textContent = '🎶 Jouer le ' + texteAJouer + ' 🎶';
+        playPauseBtn.textContent = '🎶 Jouer les ' + texteAJouer + ' 🎶';
     });
 
     
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 audioPlayer.src = `${window.location.origin}/static/audio/${folder}/${data.audio_file}`;
                 audioPlayer.pause();
                 audioPlayer.load(); // Necessary to load the new source
-                playPauseBtn.textContent = '🎶 Jouer le ' + texteAJouer + ' 🎶'; // Reset play/pause button text
+                playPauseBtn.textContent = '🎶 Jouer les ' + texteAJouer + ' 🎶'; // Reset play/pause button text
                 revealBtn.textContent = '❗Révéler ❗'; // Reset reveal button text
             }).catch(error => console.error('Error loading new sound:', error));
     });

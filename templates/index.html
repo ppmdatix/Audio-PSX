@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Welcome to Random Audio Player</title>
+    <title>Bienvenu sur Allo !</title>
 </head>
 <body>
     <div class="logo-container">
@@ -16,7 +16,17 @@
 
 
     <a href="{{ url_for('la_counter') }}" class="cta">La la la la</a>
+    <a href="{{ url_for('alike') }}" class="cta">Alike</a>
+
+
+
     </div>
+
+
+    <div class="bottom-container">
+    <p> Mini jeu de "Allo ?" par Berte Audition,</br>développé par Peseux Création avec ❤️
+    </p>
+</div>
 
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
