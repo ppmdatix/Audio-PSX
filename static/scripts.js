@@ -56,6 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Change button text when audio ends
+    audioPlayer.addEventListener('ended', function() {
+        playPauseBtn.textContent = '🎶 Jouer le ' + texteAJouer + ' 🎶';
+    });
+
+    
+
     // Reload new audio file
     reloadBtn.addEventListener('click', function() {
         fetch(fetched)

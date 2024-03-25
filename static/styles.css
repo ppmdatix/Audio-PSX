@@ -71,12 +71,25 @@ audio {
     max-width: 40vw; /* Set a minimum width to ensure usability on smaller screens */
 
     text-align: center; /* Center-align the logo horizontally */
-    padding: 20px 0; /* Some padding on top and bottom */
+    padding: 40px 0; /* Some padding on top and bottom */
 }
 
 .logo-container img {
     max-width: 100%; /* Ensure the image is not larger than its container */
     height: auto; /* Maintain aspect ratio */
+}
+
+.bottom-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    color: #04224C;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 15px; /* Adjust side paddings for content inside container but maintain full width */
+    background-color: #00BF9C; /* Or any color that fits your design */
+    box-sizing: border-box; /* Ensure padding doesn't affect the total width */
 }
 
 
@@ -173,6 +186,18 @@ audio {
     .game-rules-container p {
         font-size: 1rem; /* Adjust paragraph font size for readability */
     }
+
+    .bottom-container {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%; /* Ensure the container spans the full width */
+        padding: 10px 15px; /* Good for smaller screens, adjust as needed */
+        text-align: center;
+        box-sizing: border-box; /* Ensures padding is included in the width */
+    }
+    
 }
 
 
