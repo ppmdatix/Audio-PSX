@@ -1,5 +1,0 @@
-Flask==x.x.x
-Werkzeug==x.x.x
-Jinja2==x.x.x
-itsdangerous==x.x.x
-click==x.x.x
