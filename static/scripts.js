@@ -1,84 +1,73 @@
-document.getElementById('reload-button').addEventListener('click', function() {
-    // Retrieve the folder from the data attribute
-    const folder = this.getAttribute('data-audio-folder'); 
-    fetch(`/random-${folder}`)  // This will now fetch from /random-las or /random-sounds depending on the folder set
-        .then(response => response.json())
-        .then(data => {
-            const audioPlayer = document.getElementById('myAudio');
-            // Use the folder variable to construct the new source path
-            const newSrc = `${window.location.origin}/static/audio/${folder}/${data.audio_file}`;
-            audioPlayer.src = newSrc; // Change the source
-            audioPlayer.pause();
-            audioPlayer.load(); // Reloads new audio
-            const playPauseBtn = document.getElementById('playPauseBtn');
-            playPauseBtn.textContent = folder === 'las' ? '🎶 Jouer les la 🎶' : folder === 'sounds' ? '🎶 Jouer le son 🎶' : '🎶 Jouer les notes 🎶'; // Update text based on folder
-            const revealButton = document.getElementById('reveal-name-button');
-            revealButton.style.display = 'block'; // Show "Reveal Name" button again
-            revealButton.textContent = '❗ Révéler ❗'; // Reset text for the reveal button
-        }).catch(error => console.error('Error loading new sound:', error));
-});
+const audioFilePathsAlike = [
+    '../static/audio/alike/do-do.mp3',
+    '../static/audio/alike/fa-sol.mp3',
+    '../static/audio/alike/re-si.mp3'
+];
 
+const audioFilePathsLas = [
+    '../static/audio/las/14.mp3'
+];
 
+const audioFilePathsSounds = [
+    '../static/audio/sounds/Applaudissements.mp3',
+    '../static/audio/sounds/Battements-de-coeur.mp3',
+    '../static/audio/sounds/Clavier-d-ordinateur.mp3',
+    '../static/audio/sounds/Miaulement-de-chat.mp3'
+];
 
-
-
-
-// Common function to handle playing and pausing
-function togglePlayPause(audioPlayer, buttonText) {
-    if (audioPlayer.paused) {
-        audioPlayer.play();
-        buttonText.textContent = '⏸️ Arrêter le son ⏸️'; // Adjust text as needed
+function getRandomAudioFilePath(folder) {
+    const goodList = folder === "alike" ? audioFilePathsAlike : folder === "las" ? audioFilePathsLas : audioFilePathsSounds;
+    if (goodList.length > 0) {
+        const index = Math.floor(Math.random() * goodList.length);
+        return goodList[index];
     } else {
-        audioPlayer.pause();
-        buttonText.textContent = '🎶 Jouer le son 🎶'; // Adjust text based on your context
+        console.error('No audio files are available in the specified folder.');
+        return '';  // Optionally handle this more gracefully
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+function loadNewAudio(folder) {
     const audioPlayer = document.getElementById('myAudio');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const reloadBtn = document.getElementById('reload-button');
-    const revealBtn = document.getElementById('reveal-name-button');
-    const folder = reloadBtn.getAttribute('data-audio-folder'); 
-    const fetched = folder === 'las' ? 'random-la' : folder === 'sounds' ?'random-sound' : 'random-alike'; // Update text based on folder
-    const texteAJouer = folder === 'las' ? 'las' : folder === 'sounds' ?'sons': 'notes';
+    const audioSource = document.getElementById('audioSource');
+    audioSource.src = getRandomAudioFilePath(folder);
+    audioPlayer.load();
 
+}
 
-
-    // Toggle play/pause functionality
-    playPauseBtn.addEventListener('click', function() {
-        if (audioPlayer.paused) {
-            audioPlayer.play();
-            this.textContent = '⏸️ Arrêter les ' + texteAJouer;
-        } else {
-            audioPlayer.pause();
-            this.textContent = '🎶 Jouer les ' + texteAJouer + ' 🎶';
-        }
-    });
-
-    // Change button text when audio ends
-    audioPlayer.addEventListener('ended', function() {
-        playPauseBtn.textContent = '🎶 Jouer les ' + texteAJouer + ' 🎶';
-    });
-
+function playAudio(folder) {
+    const audioPlayer = document.getElementById('myAudio');
+    const audioSource = document.getElementById('audioSource');
+    if (!audioSource.src) {
+        loadNewAudio(folder);
+    } 
+    audioPlayer.play();
     
+}
 
-    // Reload new audio file
-    reloadBtn.addEventListener('click', function() {
-        fetch(fetched)
-            .then(response => response.json())
-            .then(data => {
-                audioPlayer.src = `${window.location.origin}/static/audio/${folder}/${data.audio_file}`;
-                audioPlayer.pause();
-                audioPlayer.load(); // Necessary to load the new source
-                playPauseBtn.textContent = '🎶 Jouer les ' + texteAJouer + ' 🎶'; // Reset play/pause button text
-                revealBtn.textContent = '❗Révéler ❗'; // Reset reveal button text
-            }).catch(error => console.error('Error loading new sound:', error));
-    });
 
-    // Reveal sound name
-    revealBtn.addEventListener('click', function() {
-        const fileName = decodeURIComponent(audioPlayer.currentSrc.split('/').pop().split('.').slice(0, -1).join('.'));
-        this.textContent = fileName; // Update the button text with the file name
-    });
-});
+
+function getFileNameWithoutExtension(path) {
+    return path.split('/').pop().replace('.mp3', '');
+}
+
+
+function revealAnswerAlike() {
+    const audioSource = document.getElementById('audioSource');
+    alert('Les 2 notes jouées étaient : ' + getFileNameWithoutExtension(audioSource.src) + ' !');
+}
+
+function revealAnswerLa() {
+    const audioSource = document.getElementById('audioSource');
+    const fileName = getFileNameWithoutExtension(audioSource.src);
+    alert('Il y a ' + fileName + ' notes !');
+}
+
+function revealAnswerSounds() {
+    const audioSource = document.getElementById('audioSource');
+    const fileName = getFileNameWithoutExtension(audioSource.src);
+    alert('Le son provient de ' + fileName + ' !');
+}
+
+
+
+

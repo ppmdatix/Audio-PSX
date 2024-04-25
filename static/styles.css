@@ -68,14 +68,13 @@ audio {
 
 .logo-container {
     width: 100%; /* Full width */
-    max-width: 40vw; /* Set a minimum width to ensure usability on smaller screens */
-
+    max-width: 20vw; /* Set a minimum width to ensure usability on smaller screens */
     text-align: center; /* Center-align the logo horizontally */
     padding: 40px 0; /* Some padding on top and bottom */
 }
 
 .logo-container img {
-    max-width: 100%; /* Ensure the image is not larger than its container */
+    max-width: 90%; /* Ensure the image is not larger than its container */
     height: auto; /* Maintain aspect ratio */
 }
 
@@ -99,10 +98,10 @@ audio {
 #audio-controls {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
 }
 
-#playPauseBtn {
+.playPauseBtn {
     cursor: pointer;
     background-color: #00BF9C; /* Vibrant teal for visibility */
     color: white; /* White text for contrast */
@@ -116,13 +115,13 @@ audio {
     outline: none; /* Remove outline to reduce visual clutter */
 }
 
-#playPauseBtn:hover {
+.playPauseBtn:hover {
     background-color: #008B75; /* Darker shade on hover for interaction feedback */
     transform: scale(1.05); /* Slight increase in size on hover */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for depth */
 }
 
-#playPauseBtn:active {
+.playPauseBtn:active {
     background-color: #006D5B; /* Even darker shade for click feedback */
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Slightly reduced shadow to simulate pressing */
 }
@@ -157,6 +156,19 @@ audio {
 .audio-player-container {
     text-align: center; /* Ensures buttons and audio player center on smaller screens */
 }
+
+.button-container {
+    display: flex;            /* Use Flexbox */
+    justify-content: space-around; /* Distribute space around items */
+    align-items: center;      /* Align items vertically in the center */
+}
+
+.button-container button {
+    margin: 5px;              /* Add margin for spacing between buttons */
+    padding: 10px 20px;       /* Padding inside each button */
+}
+
+
 
 @media (max-width: 600px) {
     .logo-container img {
@@ -199,5 +211,7 @@ audio {
     }
     
 }
+
+
 
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <title>Compter les las</title>
+    <link rel="icon" type="image/png" href="../static/images/berte-logo.png">
+
+</head>
+<body onload="loadNewAudio('las')">
+<div class="logo-container">
+    <img src="../static/images/logo-berte-audition.svg" alt="Berte Audition Logo">
+</div>
+<div class="main-container">
+    <div class="game-rules-container">
+            <h2>Règles</h2>
+            <p>Écoutez le son et comptez combien de fois la note 'La' est jouée. Appuyez sur 'Jouer' pour commencer et sur 'Révéler' pour vérifier votre réponse après votre supposition.</p>
+
+    </div>
+
+    <div class="audio-player-container">
+        <audio id="myAudio" controls>
+            <source id="audioSource" src="" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    
+
+    <button onclick="playAudio()" class="playPauseBtn">🎶 Jouer les la 🎶</button>
+    <div class="button-container">
+    <button onclick="loadNewAudio('las')" class="cta">Nouveau la la la</button>
+
+    <button onclick="revealAnswerLa()" class="cta">❗Révéler❗</button>
+
+</div>
+
+
+
+
+</div>
+
+    <div class="bottom-container">
+        <p>Mini jeu de "Allo ?" par Berte Audition, développé par Peseux Création avec ❤️</p>
+    </div>
+</div>
+
+    <script src="../static/scripts.js"></script>
+
+</body>
+</html>
