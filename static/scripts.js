@@ -70,4 +70,33 @@ function revealAnswerSounds() {
 
 
 
+let questions = [
+    "Ki i li prisidi di li ripibliki ?",
+    "Kul u lu culur du chuvul blu d'Huru kutr ?",
+    "Kaba da bass a la chama ?",
+    "Ké lé lé méhére édéprétésést d'Énnéçé ?"
+];
+
+let answers = [
+    "Iminil Micri",
+    "Blu",
+    "Da",
+    "Séfé Bért !"
+];
+
+let currentQuestionIndex = Math.floor(Math.random() * questions.length);
+let questionsDisplayed = 0;
+
+function loadQuestion() {
+    const questionContainer = document.getElementById('question');
+    if (questionsDisplayed < 3) {
+        questionContainer.innerHTML = '<div class="question">Question:     ' + questions[currentQuestionIndex] + '</div><div class="answer">Réponse: ' + answers[currentQuestionIndex] + '</div>';
+        currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+        questionsDisplayed++;
+    } else {
+        questionContainer.innerHTML = "<div class='no-more-questions'>les 3 questions sont terminées !</div>";
+    }
+}
+
+
 

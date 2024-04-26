@@ -169,6 +169,35 @@ audio {
 }
 
 
+.question-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffb6c1; /* Light pink background */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.question-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+
+.question {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.answer {
+    color: #007BFF;
+    font-size: 16px;
+}
+
 
 @media (max-width: 600px) {
     .logo-container img {
