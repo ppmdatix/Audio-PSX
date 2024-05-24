@@ -5,14 +5,29 @@ const audioFilePathsAlike = [
 ];
 
 const audioFilePathsLas = [
-    '../static/audio/las/14.mp3'
+    '../static/audio/las/8.mp3',
+    '../static/audio/las/10.mp3',
+    '../static/audio/las/12.mp3',
+    '../static/audio/las/15.mp3',
+    '../static/audio/las/17.mp3'
 ];
 
 const audioFilePathsSounds = [
     '../static/audio/sounds/Applaudissements.mp3',
     '../static/audio/sounds/Battements-de-coeur.mp3',
     '../static/audio/sounds/Clavier-d-ordinateur.mp3',
-    '../static/audio/sounds/Miaulement-de-chat.mp3'
+    '../static/audio/sounds/Crayon-papier.mp3',
+    '../static/audio/sounds/Docteur-Maboul.mp3',
+    '../static/audio/sounds/Fantome.mp3',
+    '../static/audio/sounds/Gifles-Baffes-Claques.mp3',
+    '../static/audio/sounds/Miaulement-de-chat.mp3',
+    '../static/audio/sounds/Paparazzis.wav',
+    '../static/audio/sounds/Pas-dans-la-neige.mp3',
+    '../static/audio/sounds/Petit-ruisseau.mp3',
+    '../static/audio/sounds/Rouge-gorge.mp3',
+    '../static/audio/sounds/Servir-du-vin.mp3',
+    '../static/audio/sounds/Tonnerre.mp3',
+    '../static/audio/sounds/Vinyle.mp3'
 ];
 
 function getRandomAudioFilePath(folder) {
