@@ -1,7 +1,14 @@
 const audioFilePathsAlike = [
-    '../static/audio/alike/do-do.mp3',
+    '../static/audio/alike/sol-sol.mp3',
+    '../static/audio/alike/re-si.mp3',
+    '../static/audio/alike/re-si.m4a',
+    '../static/audio/alike/mibemol-mi.mp3',
     '../static/audio/alike/fa-sol.mp3',
-    '../static/audio/alike/re-si.mp3'
+    '../static/audio/alike/fa-fa-mais-une-octave-de-difference.mp3',
+    '../static/audio/alike/do-dodiese.mp3',
+    '../static/audio/alike/do-do.mp3',
+    '../static/audio/alike/si-si.mp3',
+    '../static/audio/alike/dodiese-dodiese.mp3',
 ];
 
 const audioFilePathsLas = [
@@ -89,14 +96,22 @@ let questions = [
     "Ki i li prisidi di li ripibliki ?",
     "Kul u lu culur du chuvul blu d'Huru kutr ?",
     "Kaba da bass a la chama ?",
-    "Ké lé lé méhére édéprétésést d'Énnéçé ?"
+    "Ké lé lé méhére édéprétésést d'Énnéçé ?",
+    "Kol o lo kopotol do Jopo ?",
+    "Ky y py ly Jydyd ?",
+    "Kama s'appal la patata aguaha d'ana matra ?",
+    "Kémé é méséré lé sé ?"
 ];
 
 let answers = [
-    "Iminil Micri",
-    "Blu",
-    "Da",
-    "Séfé Bért !"
+    "Iminil Micri !",
+    "Blu !",
+    "Da !",
+    "Séfé Bért !",
+    "Toko !",
+    "Lyhynyr dy Vyssy !",
+    "La trataz !",
+    "É décébél !"
 ];
 
 let currentQuestionIndex = Math.floor(Math.random() * questions.length);

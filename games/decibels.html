@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <title>Jeu de Décibels</title>
+    <link rel="icon" type="image/png" href="../static/images/berte-logo.png">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="../static/images/logo-berte-audition.svg" alt="Berte Audition Logo">
+    </div>
+    <div class="main-container">
+        <div class="game-rules-container">
+            <h2>Règles</h2>
+            <p>Essayez d'atteindre le niveau de décibels cible en parlant ou en criant dans le téléphone. Vous avez 5 secondes pour atteindre la cible. Appuyez sur le bouton "Démarrer" pour commencer.</p>
+        </div>
+        <div class="canvas-container">
+            <canvas id="gaugeCanvas" width="150" height="500" style="display: none;"></canvas>
+            <div class="timer-container">
+                <canvas id="timerCanvas" width="100" height="100" style="display: none;"></canvas>
+            </div>
+        </div>
+        <button onclick="startGame()" class="cta">Démarrer</button>
+        <div id="result" class="result"></div>
+    </div>
+    <div class="bottom-container">
+        <p>Mini jeu de "Allo ?" par Berte Audition, développé par Peseux Création avec ❤️</p>
+    </div>
+    <script src="../static/scripts.js"></script>
+    <script src="../static/decibels.js"></script>
+</body>
+</html>

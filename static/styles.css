@@ -1,145 +1,127 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-
-
 body, html {
     height: 100%;
     margin: 0;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center children horizontally */
-    justify-content: flex-start; /* Align children to the top */
-    background-color: #013d55; /* Background color */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #013d55;
 }
 
-/* New and updated styles */
-.cta {
+.cta, .audio-name {
     cursor: pointer;
-    display: inline-block;
-    background-color: #00BF9C; /* Vibrant color for visibility */
-    color: #04224C; /* Contrasting text color */
-
-    padding: 12px 24px; /* Adequate padding */
-    margin-top: 20px; /* Space from the preceding text */
-    border-radius: 50px; /* Rounded corners for a modern look */
-    transition: background-color 0.3s ease; /* Smooth transition for interaction */
-    text-decoration: none; /* Remove underline from links */
-    font-weight: bold; /* Make the text bold */
+    display: block;
+    background-color: #00BF9C;
+    color: #04224C;
+    padding: 12px 24px;
+    margin: 10px auto;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
 }
 
 .cta:hover {
-    background-color: #008BFF; /* Change color on hover for interaction feedback */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add shadow */
+    background-color: #008BFF;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     color: #F9C0C0;
 }
 
-.main-container {
-
+.main-container, .audio-player-container, .game-rules-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically in the available space */
-    width: 100%; /* Take the full width */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 80vw;
+    padding: 20px;
+    background-color: #F9C0C0;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+    margin: 10px;
+    
 }
 
+.main-container {
+    flex-grow: 1; /* Ensure the main container takes the available space */
+}
 .audio-player-container {
-    width: 80%; /* Make the container take up 80% of the viewport width */
-    min-width: 300px; /* Set a minimum width to ensure usability on smaller screens */
-    margin: auto; /* Center the player on the page */
-    padding: 30px; /* Add some padding around the player
-    padding: 20px; /* Add some padding around the player */
-    background-color: #F9C0C0; /* A light background */
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9); /* A subtle shadow */
-    text-align: center; /* Center the content */
+    min-width: 300px;
 }
-
 
 audio {
-    width: 100%; /* Make the audio element fill the container */
-    outline: none; /* Remove the outline */
-    margin-top: 10px; /* Add some space above the player */
-}
-
-.audio-name, .cta {
-    text-align: center; /* Center-align text for these elements */
-    display: block; /* Ensure buttons and text span the full container width */
-    margin: 10px auto; /* Center-align block elements */
+    width: 100%;
+    outline: none;
+    margin-top: 10px;
 }
 
 .logo-container {
-    width: 100%; /* Full width */
-    max-width: 20vw; /* Set a minimum width to ensure usability on smaller screens */
-    text-align: center; /* Center-align the logo horizontally */
-    padding: 40px 0; /* Some padding on top and bottom */
+    width: 100%;
+    max-width: 20vw;
+    text-align: center;
+    padding: 40px 0;
 }
 
 .logo-container img {
-    max-width: 90%; /* Ensure the image is not larger than its container */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 90%;
+    height: auto;
 }
 
 .bottom-container {
-    position: fixed;
+    width: 100%;
+    color: #04224C;
+    background-color: #00BF9C;
+    text-align: center;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    position: sticky;
+    bottom: 0;
     left: 0;
     right: 0;
-    color: #04224C;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px 15px; /* Adjust side paddings for content inside container but maintain full width */
-    background-color: #00BF9C; /* Or any color that fits your design */
-    box-sizing: border-box; /* Ensure padding doesn't affect the total width */
 }
 
-
-/* Add your existing styles here */
-
-/* New styles for the custom audio controls */
-#audio-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
+.bottom-container p {
+    margin: 0;
 }
 
 .playPauseBtn {
     cursor: pointer;
-    background-color: #00BF9C; /* Vibrant teal for visibility */
-    color: white; /* White text for contrast */
-    padding: 10px 20px; /* Adequate padding for better interaction */
-    border: none; /* Remove default border */
-    border-radius: 25px; /* Rounded corners for a modern look */
-    font-size: 16px; /* Slightly larger font for clarity */
-    font-weight: bold; /* Bold text to stand out */
-    transition: background-color 0.3s ease, transform 0.2s; /* Smooth transition for visual feedback */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    outline: none; /* Remove outline to reduce visual clutter */
+    background-color: #00BF9C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    outline: none;
 }
 
 .playPauseBtn:hover {
-    background-color: #008B75; /* Darker shade on hover for interaction feedback */
-    transform: scale(1.05); /* Slight increase in size on hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for depth */
+    background-color: #008B75;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .playPauseBtn:active {
-    background-color: #006D5B; /* Even darker shade for click feedback */
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Slightly reduced shadow to simulate pressing */
+    background-color: #006D5B;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-/* Base styles */
 .game-rules-container {
     margin-bottom: 10px;
     padding: 5px;
     background-color: #18fc94;
     border-radius: 10px;
-    font-family: 'Roboto', sans-serif; /* Apply Roboto font here */
-    max-width: 80vw;
-
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    text-align: center; /* Center text for better mobile readability */
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .game-rules-container h2 {
@@ -153,26 +135,25 @@ audio {
     color: #666;
 }
 
-.audio-player-container {
-    text-align: center; /* Ensures buttons and audio player center on smaller screens */
+.game-rules-container {
+    transition: opacity 0.5s ease-out;
 }
 
 .button-container {
-    display: flex;            /* Use Flexbox */
-    justify-content: space-around; /* Distribute space around items */
-    align-items: center;      /* Align items vertically in the center */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .button-container button {
-    margin: 5px;              /* Add margin for spacing between buttons */
-    padding: 10px 20px;       /* Padding inside each button */
+    margin: 5px;
+    padding: 10px 20px;
 }
 
-
 .question-container {
-    margin: 20px;
-    padding: 20px;
-    background-color: #ffb6c1; /* Light pink background */
+    margin: 10px;
+    padding: 10px;
+    background-color: #ffb6c1;
     border: 2px solid #ddd;
     border-radius: 10px;
     text-align: center;
@@ -197,49 +178,132 @@ audio {
     font-size: 16px;
 }
 
+.answer-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
 
-@media (max-width: 600px) {
-    .logo-container img {
-        max-width: 80%; /* Adjust logo size on smaller screens */
-    }
+.answer-buttons button {
+    cursor: pointer;
+    background-color: #00BF9C;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
 
-    .audio-player-container, .game-rules-container {
-        width: 95%; /* Use more of the screen width */
-        padding: 10px; /* Adjust padding for smaller screens */
+.answer-buttons button:hover {
+    background-color: #008BFF;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
 
-    }
+.answer-buttons button:active {
+    background-color: #006D5B;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
 
-    .audio-player-container, .main-container {
-        text-align: center; /* This ensures that content inside, including inline-block elements, are centered */
-    }
+.target-decibel-container, .current-decibel-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffb6c1; /* Light pink background */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
 
-    .audio-player-container button, .cta {
-        width: 90%; /* Change from 'auto' to a percentage to ensure it takes up majority of the screen width while centered */
-        margin: 10px auto; /* 'auto' margins on left and right can help center block elements */
-        display: block; /* Change from inline-block for full width buttons on smaller screens */
-    }
+.target-decibel-container:hover, .current-decibel-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
 
-    .game-rules-container h2 {
-        font-size: 1.25rem; /* Larger text for headings */
-    }
+.next-question-btn {
+    font-size: 1.5em; /* Augmentez cette valeur pour une taille de police plus grande */
+    padding: 10px 20px; /* Ajoutez du padding pour rendre le bouton plus grand */
+    background-color: #00BF9C; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte */
+    border: none; /* Supprimez les bordures */
+    border-radius: 25px; /* Ajoutez des coins arrondis */
+    font-weight: bold; /* Rendre le texte en gras */
+    cursor: pointer; /* Change le curseur en pointeur */
+    transition: background-color 0.3s ease, transform 0.2s; /* Ajoutez des transitions pour des effets visuels */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre subtile */
+    outline: none; /* Supprimez l'outline */
+}
 
-    .game-rules-container p {
-        font-size: 1rem; /* Adjust paragraph font size for readability */
-    }
+.next-question-btn:hover {
+    background-color: #008B75; /* Changez la couleur de fond au survol */
+    transform: scale(1.05); /* Augmentez légèrement la taille au survol */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Ajoutez une ombre plus prononcée au survol */
+}
 
-    .bottom-container {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%; /* Ensure the container spans the full width */
-        padding: 10px 15px; /* Good for smaller screens, adjust as needed */
-        text-align: center;
-        box-sizing: border-box; /* Ensures padding is included in the width */
-    }
-    
+.next-question-btn:active {
+    background-color: #006D5B; /* Changez la couleur de fond lors du clic */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Réduisez l'ombre lors du clic */
 }
 
 
+@media (max-width: 600px) {
+    .logo-container img {
+        max-width: 80%;
+    }
 
+    .audio-player-container, .game-rules-container {
+        width: 95%;
+        padding: 10px;
+    }
 
+    .audio-player-container, .main-container {
+        text-align: center;
+    }
+
+    .audio-player-container button {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .game-rules-container h2 {
+        font-size: 1.25rem;
+    }
+
+    .game-rules-container p {
+        font-size: 1rem;
+    }
+
+    .bottom-container {
+        padding: 10px 15px;
+    }
+}
+
+#timerCanvas, #gaugeCanvas {
+    display: block;
+    margin: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+}
