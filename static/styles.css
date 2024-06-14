@@ -253,6 +253,14 @@ audio {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Réduisez l'ombre lors du clic */
 }
 
+.result{
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+
+
+}
+
 
 @media (max-width: 600px) {
     .logo-container img {

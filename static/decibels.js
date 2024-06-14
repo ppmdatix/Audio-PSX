@@ -12,6 +12,10 @@ const maxGaugeDecibels = 30;
 
 const totalDuration = 5; // 5 secondes
 
+function modifyDecibels(currentDecibel){
+    return 0.4 * (50 + currentDecibel);
+}
+
 function startGame() {
     // Afficher les canvas après le début du jeu
     const timerCanvas = document.getElementById('timerCanvas');
@@ -20,6 +24,9 @@ function startGame() {
         gaugeCanvas.style.display = 'block';
         timerCanvas.style.display = 'block';
     }
+
+    document.getElementById('result').textContent = '';
+
 
     targetDecibelValue = Math.floor(Math.random() * (maxTirableDecibels - minTirableDecibels + 1)) + minTirableDecibels; // Cible entre minTirableDecibels et maxTirableDecibels
 
@@ -50,23 +57,26 @@ function startMonitoring() {
 
         const currentVolume = meter.volume;
         const currentDecibel = currentVolume > 0 ? 20 * Math.log10(currentVolume) : minGaugeDecibels; // Ajustez le calcul pour des valeurs positives
-        drawGauge(gaugeCtx, currentDecibel);
+        const modifiedCurrentDecibel = modifyDecibels(currentDecibel);
+        drawGauge(gaugeCtx, modifiedCurrentDecibel);
 
         if (elapsedTime > totalDuration) {
             clearInterval(timerInterval);
-            const finalDecibel = currentDecibel;
-            drawGauge(gaugeCtx, finalDecibel, true);
-            if (Math.abs(finalDecibel - targetDecibelValue) <= 2) {
+            const finalModifiedCurrentDecibel = modifiedCurrentDecibel;
+            drawGauge(gaugeCtx, finalModifiedCurrentDecibel, true);
+            if (Math.abs(finalModifiedCurrentDecibel - targetDecibelValue) <= 2) {
                 document.getElementById('result').textContent = 'Bien joué ! Vous marquez 1 point.';
+                
             } else {
-                document.getElementById('result').textContent = 'Dommage, essayez encore.';
+                document.getElementById('result').textContent = 'Dommage, essayez encore si les autres joueurs sont ok !';
             }
+            document.getElementById('cta').textContent = 'Rejouer';
             return;
         }
     }, 100);
 }
 
-function drawGauge(ctx, currentDecibel, final = false) {
+function drawGauge(ctx, modifiedCurrentDecibel, final = false) {
     const image = new Image();
     image.src = '../static/images/target.png';
     const gaugeHeight = 500;
@@ -86,17 +96,12 @@ function drawGauge(ctx, currentDecibel, final = false) {
         const targetSize = gaugeWidth;
         ctx.drawImage(image, 10, targetPositionY - targetSize / 2, targetSize, targetSize);
 
-        // Afficher le décibel cible à côté de la cible
-        ctx.font = '30px Arial';
-        ctx.fillStyle = '#1F1F1F';
-        ctx.fillText(targetDecibelValue + ' dB', gaugeWidth + 20, targetPositionY + 10);
-
         // Dessiner l'indicateur de décibels
-        const currentPositionY = 50 + gaugeHeight - ((Math.max(minGaugeDecibels + 5, Math.min(maxGaugeDecibels, currentDecibel)) - minGaugeDecibels) / (maxGaugeDecibels - minGaugeDecibels) * gaugeHeight);
+        const currentPositionY = 50 + gaugeHeight - ((Math.max(minGaugeDecibels + 5, Math.min(maxGaugeDecibels, modifiedCurrentDecibel)) - minGaugeDecibels) / (maxGaugeDecibels - minGaugeDecibels) * gaugeHeight);
         ctx.beginPath();
         ctx.moveTo(10 + gaugeWidth, currentPositionY);
-        ctx.lineTo(10 + gaugeWidth + 20, currentPositionY - 10);
-        ctx.lineTo(10 + gaugeWidth + 20, currentPositionY + 10);
+        ctx.lineTo(10 + gaugeWidth + 40, currentPositionY - 20);
+        ctx.lineTo(10 + gaugeWidth + 40, currentPositionY + 20);
         ctx.closePath();
         ctx.fillStyle = final ? '#008BFF' : '#00BF9C';
         ctx.fill();
