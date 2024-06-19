@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <title>Stop ou Encore</title>
+    <link rel="icon" type="image/png" href="../static/images/berte-logo.png">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="../static/images/logo-berte-audition.svg" alt="Berte Audition Logo">
+    </div>
+    <div class="main-container">
+        <div class="game-rules-container">
+            <h2>Règles</h2>
+            <p>Vous devez deviner les mots prononcés par le téléphone. Les mots seront prononcés de moins en moins fort. Plus vous répétez de mots, plus vous gagnez de points, mais en cas d'erreur, vous retombez à 0. Après chaque mot deviné, vous décidez d'arrêter ou continuer. Donnez le téléphone à un autre joueur et mettez le volume au maximum.</p>
+        </div>
+        <button id ="start" class="cta" onclick="startGame()">Démarrer le jeu</button>
+        <div id="word-container" class="word-container"></div>
+        <div id="word-result" class="word-result"></div>
+        <div id="answer-buttons" class="button-container">
+            <button class="cta" onclick="playerGuessedCorrectly()">Bonne réponse et on continue</button>
+            <button class="cta" onclick="playerGuessedCorrectlyAndStop()">Bonne réponse et on arrête</button>
+            <button class="cta" onclick="playerGuessedIncorrectly()">Mauvaise réponse</button>
+        </div>
+    </div>
+    <div class="bottom-container">
+        <p>Mini jeu de "Allo ?" par Berte Audition, développé par Peseux Création avec ❤️</p>
+    </div>
+    <script src="../static/scripts.js"></script>
+    <script src="../static/stop-ou-encore.js"></script>
+</body>
+</html>

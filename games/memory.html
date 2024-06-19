@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <title>Memory Auditif</title>
+    <link rel="icon" type="image/png" href="../static/images/berte-logo.png">
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 300px;
+            margin: 20px auto;
+        }
+        .cell {
+            width: 80px;
+            height: 80px;
+            background-color: #ffb6c1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .cell.found-player1 {
+            background-color: #00BF9C;
+            cursor: default;
+        }
+        .cell.found-player2 {
+            background-color: #003E55;
+            cursor: default;
+        }
+        .cell.selected {
+            background-color: #FFD700;
+        }
+        .score-board {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: #f1f1f1;
+        }
+        .player {
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .player.active {
+            border-bottom: 4px solid #FFD700;
+        }
+        #player1 {
+            color: #00BF9C;
+        }
+        #player2 {
+            color: #003E55;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="../static/images/logo-berte-audition.svg" alt="Berte Audition Logo">
+    </div>
+    <div class="main-container">
+        <div class="game-rules-container">
+            <h2>Règles</h2>
+            <p>Retrouvez les paires de sons. Chaque joueur joue à tour de rôle. Le joueur avec le plus de paires gagne.</p>
+        </div>
+        <div class="score-board">
+            <div id="player1" class="player">Joueur A: <span id="score1">0</span></div>
+            <div id="player2" class="player">Joueur B: <span id="score2">0</span></div>
+        </div>
+        <div class="grid" id="grid"></div>
+        <div id="result" class="result"></div>
+    </div>
+    <div class="bottom-container">
+        <p>Mini jeu de "Allo ?" par Berte Audition, développé par Peseux Création avec ❤️</p>
+    </div>
+    <script src="../static/scripts.js"></script>
+    <script src="../static/memory-auditif.js"></script>
+</body>
+</html>

@@ -261,6 +261,31 @@ audio {
 
 }
 
+.word-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffb6c1;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.word-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.word-result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+
 
 @media (max-width: 600px) {
     .logo-container img {
