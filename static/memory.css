@@ -1,0 +1,54 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 300px;
+    margin: 20px auto;
+}
+.cell {
+    width: 80px;
+    height: 80px;
+    background-color: #ffb6c1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.cell.found-player1 {
+    background-color: #00BF9C;
+    cursor: default;
+}
+.cell.found-player2 {
+    background-color: #003E55;
+    cursor: default;
+}
+.cell.selected {
+    background-color: #FFD700;
+}
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+.player {
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.player.active {
+    border-bottom: 4px solid #FFD700;
+}
+#player1 {
+    background-color: #00BF9C;
+}
+#player2 {
+    background-color: #003E55;
+}

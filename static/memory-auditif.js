@@ -123,11 +123,11 @@ function playSound(sound) {
 function endGame() {
     let result = document.getElementById('result');
     if (score1 > score2) {
-        result.textContent = 'Joueur 1 gagne!';
+        result.textContent = 'Joueur A gagne ! Vous marquez 2 points';
     } else if (score2 > score1) {
-        result.textContent = 'Joueur 2 gagne!';
+        result.textContent = 'Joueur B gagne ! Vous marquez 2 points';
     } else {
-        result.textContent = 'Égalité!';
+        result.textContent = 'Égalité ! Personne ne marque de points 😔';
     }
 }
 
