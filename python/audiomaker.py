@@ -1,8 +1,29 @@
 import os
 
 # Liste de mots pour lesquels générer des fichiers audio
-words = ["Zigouigoui", "Bric-à-brac", "Farfelu", "Tintamarre", "Quiproquo", 
-         "Tralalère", "Gribouille", "Zonzon", "Brouhaha", "Chichiteux"]
+words = [
+"le bouchon",
+"le souper",
+"le rondin",
+"le grumeau",
+"le rebut",
+"le glaçon",
+"le réchaud",
+"le coffret",
+"le gamin",
+"le clavier",
+"le râteau",
+"le donjon",
+"le sergent",
+"le crémier",
+"le niveau",
+"le refrain",
+"le veston",
+"le forban",
+"le bûcher",
+"le cachot"
+
+]
 
 # Chemin du dossier où les fichiers audio seront enregistrés
 output_dir = "./words/"

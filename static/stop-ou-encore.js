@@ -1,14 +1,25 @@
 let words = [
-    "Zigouigoui.m4a",
-    "Bric-à-brac.m4a",
-    "Farfelu.m4a",
-    "Tintamarre.m4a",
-    "Quiproquo.m4a",
-    "Tralalère.m4a",
-    "Gribouille.m4a",
-    "Zonzon.m4a",
-    "Brouhaha.m4a",
-    "Chichiteux.m4a"
+"le bouchon.m4a",
+"le souper.m4a",
+"le rondin.m4a",
+"le grumeau.m4a",
+"le rebut.m4a",
+"le glaçon.m4a",
+"le réchaud.m4a",
+"le coffret.m4a",
+"le gamin.m4a",
+"le clavier.m4a",
+"le râteau.m4a",
+"le donjon.m4a",
+"le sergent.m4a",
+"le crémier.m4a",
+"le niveau.m4a",
+"le refrain.m4a",
+"le veston.m4a",
+"le forban.m4a",
+"le bûcher.m4a",
+"le cachotm4a"
+
 ];
 
 let shuffledWords = shuffleArray(words);
