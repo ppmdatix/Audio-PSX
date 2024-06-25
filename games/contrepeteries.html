@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <title>Jeu de Contrepèteries</title>
+    <link rel="icon" type="image/png" href="../static/images/berte-logo.png">
+    <style>
+        .phrase-container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffb6c1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        p.smallText {
+    font-size: 25px;
+    font-weight:bold;
+    color: #00B7AB;
+}
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="../static/images/logo-berte-audition.svg" alt="Berte Audition Logo">
+    </div>
+    <div class="main-container">
+        <div class="game-rules-container">
+            <h2>Règles</h2>
+            <p>À tour de rôle, les joueurs lisent la phrase d'origine. Le premier à trouver la contrepèterie gagne un point. Ce jeu est terminé lorsque chaque joueur a lu 2 contrepèteries.</p>
+        </div>
+        <div class="phrase-container" id="phrase-container">
+            <p class="smallText">Phrase d'origine:</p>
+            <div id="original-phrase">Cliquez sur "Phrase suivante" pour commencer.</div>
+            </br>
+            <p class="smallText">Contrepèterie:</p>
+            <div id="counterpeterie-phrase"></div>
+        </div>
+        <button class="cta" onclick="nextPhrase()">Contrepèterie suivante</button>
+    </div>
+    <div class="bottom-container">
+        <p>Mini jeu de "Allo ?" par Berte Audition, développé par Peseux Création avec ❤️</p>
+    </div>
+    <script src="../static/scripts.js"></script>
+    <script src="../static/contrepeteries.js"></script>
+</body>
+</html>
