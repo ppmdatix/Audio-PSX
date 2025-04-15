@@ -13,10 +13,11 @@
         <img src="../static/images/logo-berte-audition.svg" alt="Berte Audition Logo">
     </div>
     <div class="main-container">
-        <div class="game-rules-container">
+        <div class="game-rules-container" id="gameRules">
             <h2>Règles</h2>
             <p>Essayez d'atteindre le niveau de décibels cible en parlant ou en criant dans le téléphone. Vous avez 5 secondes pour atteindre la cible. Appuyez sur le bouton "Démarrer" pour commencer.</p>
         </div>
+        <button id="cta" onclick="startGame()" class="cta">Démarrer</button>
         <div class="canvas-container">
             <canvas id="gaugeCanvas" width="150" height="500" ></canvas>
             <div class="timer-container">
@@ -24,8 +25,6 @@
             </div>
         </div>
         <div id="result" class="result"></div>
-        <button id="cta" onclick="startGame()" class="cta">Démarrer</button>
-        
     </div>
     <div class="bottom-container">
         <p>Mini jeu de "Allo ?" par Berte Audition, développé par Peseux Création avec ❤️</p>

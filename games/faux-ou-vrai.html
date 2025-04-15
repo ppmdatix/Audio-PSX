@@ -6,20 +6,37 @@
     <link rel="stylesheet" type="text/css" href="../static/styles.css">
     <title>Faux ou Vrai</title>
     <link rel="icon" type="image/png" href="../static/images/berte-logo.png">
+    <meta name="theme-color" content="#013d55">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
     <div class="logo-container">
-    <img src="../static/images/logo-berte-audition.svg" alt="Berte Audition Logo">    
+        <img src="../static/images/logo-berte-audition.svg" alt="Berte Audition Logo">    
     </div>
-<div class="main-container">
+    
+    <div class="main-container">
         <div class="game-rules-container">
             <h2>Règles</h2>
             <p>Donnez le téléphone à la personne de votre choix. Elle va vous poser 5 questions de culture générale. Si vous répondez juste à 3 d'entre elles, vous gagnez 1 point.</p>
+            <button class="start-game-btn" onclick="startGame()">Commencer le jeu</button>
         </div>
-        <div id="question" class="question-container">
-            <!-- Questions will be loaded here -->
+
+        <div id="game-content" style="display: none;">
+            <div class="progress-text">Question <span id="current-question">1</span>/5</div>
+
+            <div id="question" class="question-container">
+                <!-- Questions will be loaded here -->
+                <div class="score-container">
+                    <div class="score-circle">
+                        <span id="score-value">0</span>
+                        <span class="score-label">points</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
     <div class="bottom-container">
         <p>Mini jeu de "Allo ?" par Berte Audition, développé par Peseux Création avec ❤️</p>
     </div>

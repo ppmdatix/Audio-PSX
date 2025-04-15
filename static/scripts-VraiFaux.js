@@ -25,7 +25,6 @@ let score = 0;
 let questionsAsked = 0;
 let currentQuestionIndex = 0;
 let usedQuestions = [];
-let rulesHidden = false;
 
 function shuffleQuestions(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -34,14 +33,20 @@ function shuffleQuestions(array) {
     }
 }
 
-function hideRules() {
-    if (!rulesHidden) {
-        const rulesContainer = document.querySelector('.game-rules-container');
-        if (rulesContainer) {
-            rulesContainer.style.display = 'none';
-        }
-        rulesHidden = true;
-    }
+function startGame() {
+    document.querySelector('.game-rules-container').style.display = 'none';
+    document.getElementById('game-content').style.display = 'block';
+    shuffleQuestions(questions);
+    usedQuestions = questions.slice(0, 5).map((_, index) => index);
+    score = 0;
+    questionsAsked = 0;
+    updateScore();
+    loadQuestion();
+}
+
+function updateScore() {
+    const scoreValue = document.getElementById('score-value');
+    scoreValue.textContent = score;
 }
 
 function loadQuestion() {
@@ -49,18 +54,35 @@ function loadQuestion() {
         currentQuestionIndex = usedQuestions[questionsAsked];
         const question = questions[currentQuestionIndex].question;
         const questionContainer = document.getElementById('question');
+        
         questionContainer.innerHTML = `
+            <div class="score-container">
+                <div class="score-circle">
+                    <span id="score-value">${score}</span>
+                    <span class="score-label">points</span>
+                </div>
+            </div>
             <div class="question">${question}</div>
             <div class="answer-buttons">
-                <button onclick="checkAnswer('oui')">Oui</button>
-                <button onclick="checkAnswer('non')">Non</button>
+                <button onclick="checkAnswer('oui')">✓ Oui</button>
+                <button onclick="checkAnswer('non')">✗ Non</button>
             </div>
         `;
+        
+        document.getElementById('current-question').textContent = questionsAsked + 1;
     } else {
-        const result = score >= 3 ? `Vous avez gagné 2 points!` : `Vous avez perdu!`;
+        const result = score >= 3 ? `Félicitations ! Vous avez gagné 1 point ! 🎉` : `Dommage ! Essayez encore ! 💪`;
         document.getElementById('question').innerHTML = `
-            <div class="question">Le quiz est terminé. ${result}</div>
-            <div class="score">Score: ${score}/5 bonnes réponses</div>
+            <div class="score-container">
+                <div class="score-circle">
+                    <span id="score-value">${score}</span>
+                    <span class="score-label">points</span>
+                </div>
+            </div>
+            <div class="question">Le quiz est terminé</div>
+            <div class="result">${result}</div>
+            <div class="score">Score final: ${score}/5 bonnes réponses</div>
+            <button class="start-game-btn" onclick="startGame()">Rejouer</button>
         `;
     }
 }
@@ -69,23 +91,35 @@ function checkAnswer(userAnswer) {
     const correctAnswer = questions[currentQuestionIndex].answer;
     const explanation = questions[currentQuestionIndex].explanation;
     const questionContainer = document.getElementById('question');
-    if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+    const buttons = document.querySelectorAll('.answer-buttons button');
+    
+    buttons.forEach(button => button.disabled = true);
+    
+    const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
+    if (isCorrect) {
         score++;
+        updateScore();
     }
+    
     questionsAsked++;
-    hideRules();
+    
+    // Show answer and explanation
     questionContainer.innerHTML = `
+        <div class="score-container">
+            <div class="score-circle">
+                <span id="score-value">${score}</span>
+                <span class="score-label">points</span>
+            </div>
+        </div>
         <div class="question">${questions[currentQuestionIndex].question}</div>
         <div class="answer">Réponse: ${correctAnswer}</div>
         <div class="explanation">${explanation}</div>
-        </br>
-        <div class="score">Score actuel: ${score}/${questionsAsked}</div>
-        <button class="next-question-btn" onclick="loadQuestion()">➡️ Question suivante ⬅️</button>
+        <button class="start-game-btn" onclick="loadQuestion()">
+            ${questionsAsked < 5 ? 'Question suivante' : 'Voir le résultat'}
+        </button>
     `;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    shuffleQuestions(questions);
-    usedQuestions = questions.slice(0, 5).map((_, index) => index);
-    loadQuestion();
+    document.getElementById('game-content').style.display = 'none';
 });

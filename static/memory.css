@@ -21,7 +21,7 @@
     cursor: default;
 }
 .cell.found-player2 {
-    background-color: #003E55;
+    background-color: #008BFF;
     cursor: default;
 }
 .cell.selected {
@@ -50,5 +50,5 @@
     background-color: #00BF9C;
 }
 #player2 {
-    background-color: #003E55;
+    background-color: #008BFF;
 }

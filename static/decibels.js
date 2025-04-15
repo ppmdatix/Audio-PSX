@@ -17,6 +17,10 @@ function modifyDecibels(currentDecibel){
 }
 
 function startGame() {
+    // Hide the rules container and the start button
+    document.getElementById('gameRules').style.display = 'none';
+    document.getElementById('cta').style.display = 'none';
+    
     // Afficher les canvas après le début du jeu
     const timerCanvas = document.getElementById('timerCanvas');
     const gaugeCanvas = document.getElementById('gaugeCanvas');
@@ -27,8 +31,7 @@ function startGame() {
 
     document.getElementById('result').textContent = '';
 
-
-    targetDecibelValue = Math.floor(Math.random() * (maxTirableDecibels - minTirableDecibels + 1)) + minTirableDecibels; // Cible entre minTirableDecibels et maxTirableDecibels
+    targetDecibelValue = Math.floor(Math.random() * (maxTirableDecibels - minTirableDecibels + 1)) + minTirableDecibels;
 
     // Initialiser l'audio context et analyser le son
     audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -56,7 +59,7 @@ function startMonitoring() {
         drawTimer(timerCtx, remainingTime / totalDuration);
 
         const currentVolume = meter.volume;
-        const currentDecibel = currentVolume > 0 ? 20 * Math.log10(currentVolume) : minGaugeDecibels; // Ajustez le calcul pour des valeurs positives
+        const currentDecibel = currentVolume > 0 ? 20 * Math.log10(currentVolume) : minGaugeDecibels;
         const modifiedCurrentDecibel = modifyDecibels(currentDecibel);
         drawGauge(gaugeCtx, modifiedCurrentDecibel);
 
@@ -66,11 +69,12 @@ function startMonitoring() {
             drawGauge(gaugeCtx, finalModifiedCurrentDecibel, true);
             if (Math.abs(finalModifiedCurrentDecibel - targetDecibelValue) <= 2) {
                 document.getElementById('result').textContent = 'Bien joué ! Vous marquez 1 point.';
-                
             } else {
                 document.getElementById('result').textContent = 'Dommage, essayez encore si les autres joueurs sont ok !';
             }
+            // Show the replay button but keep rules hidden
             document.getElementById('cta').textContent = 'Rejouer';
+            document.getElementById('cta').style.display = 'block';
             return;
         }
     }, 100);
